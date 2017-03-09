@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<!--HTML5 doctype-->
+<html>
+
+<head>
+
+    <title>App Framework Kitchen Sink</title>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0, minimal-ui">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta HTTP-EQUIV="Pragma" CONTENT="no-cache" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <link rel="stylesheet" type="text/css" href="lib/appframework/icons.css" />
+    <link rel="stylesheet" type="text/css" href="lib/appframework/af.ui.css" />
+
+    <script type="text/javascript" charset="utf-8" src="lib/jquery.min.js"></script>
+    <script type="text/javascript" charset="utf-8" src="lib/fastclick.min.js"></script>
+    <script type="text/javascript" charset="utf-8" src="lib/appframework/appframework.ui.min.js"></script>
+        
+    <script src='cordova.js'></script>
+    
+    <script src="lib/Cliente.js"> </script>
+    <script src="lib/Libros.js"> </script>
+
+      <link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="css/styles.css" />
+
+</head>
+
+<body>
+    <div id="splashscreen" class='ui-loader heavy'>
+        App Framework
+        <br>
+        <br>
+        <span class='ui-icon ui-icon-loading spin'></span>
+        <h1>Starting app</h1>
+    </div>
+
+    <div class="view splitview">
+        
+        <header> 
+            <a class="menuButton" data-left-menu="left" data-transition="cover" style="float:left"></a>
+            <h1>Title</h1>
+            
+        </header>
+        
+        <div class="pages">
+            <div class="panel" id="main" data-title="Inicio" data-selected="true">
+                <h1>Cliente CRUD</h1>
+                <p>Ejemplo de APP híbrida que produce/consume un servicio REST</p>
+             
+            </div>
+            <div class="panel" id="c_cliente" data-title="Create Cliente">
+                <h1>Create Cliente</h1>
+                <div class="container">
+                 <form>
+                  <div class="form-group">
+                    <input type="text" id="c_al_nombre" class="form-control" placeholder="Nombre del Cliente" >
+                  </div>
+                  <div class="form-group">
+                    <input type="text" id="c_al_apellido" class="form-control" placeholder="Apellidos del Cliente"  >
+                  </div>
+                     <div class="form-group">
+                    <input type="text" id="c_al_direccion" class="form-control" placeholder="Direccion del Cliente"  >
+                  </div>
+                     <div class="form-group">
+                    <input type="text" id="c_al_email" class="form-control" placeholder="Email del Cliente"  >
+                  </div>
+                  <div class="form-group">
+                    <div class="btn btn-danger" onclick="$.cliente.ClienteCreateREST()">Enviar!</div>
+                  </div>
+                </form>
+                </div>
+            </div>
+            <div class="panel" id="r_cliente" data-title="Read Cliente">
+                <h1>Leer Clientes</h1>
+            </div>
+            <div class="panel" id="u_cliente" data-title="Update Cliente">
+                <h1>Modificar Clientes</h1>
+            </div>
+            <div class="panel" id="uf_cliente" data-title="Update Cliente">
+                <h1>Crear Clientes</h1>
+                <div class="container">
+                 <form>
+                  <div class="form-group">
+                    <input type="hidden" id="u_al_id" class="form-control" placeholder="ID del Cliente" >
+                  </div>   
+                  <div class="form-group">
+                    <input type="text" id="u_al_nombre" class="form-control" placeholder="Nombre del Cliente" >
+                  </div>
+                  <div class="form-group">
+                    <input type="text" id="u_al_apellidos" class="form-control" placeholder="Apellidos del Cliente"  >
+                  </div>
+                      <div class="form-group">
+                    <input type="text" id="u_al_direccion" class="form-control" placeholder="Direccion del Cliente"  >
+                  </div>
+                      <div class="form-group">
+                    <input type="text" id="u_al_email" class="form-control" placeholder="Email del Cliente"  >
+                  </div>
+                  <div class="form-group">
+                    <div class="btn btn-danger" onclick="$.cliente.ClienteUpdateREST(1,1)">Enviar!</div>
+                  </div>
+                </form>
+                </div>
+            </div>
+            <div class="panel" id="d_cliente" data-title="Delete Cliente">
+                <h1>Delete Cliente</h1>
+            </div>
+            <div class="panel" id="err_cliente" data-title="ERROR">
+                <h1>Panel para la gestión de errores</h1>
+            </div>
+        
+<-->-------------------------------LIBROS-----------------------------------</-->
+                
+            <div class="panel" id="c_libro" data-title="Create Libro">
+                <h1>Crear Libro</h1>
+                <div class="container">
+                 <form>
+                  <div class="form-group">
+                    <input width="70%" type="text" id="c_li_nombre" class="form-control" placeholder="Titulo del Libro">
+                  </div>
+                  <div class="form-group">
+                    <input type="text" id="c_li_autor" class="form-control" placeholder="Autor del Libro">
+                  </div>
+                     <div class="form-group">
+                    <input type="text" id="c_li_CodIsbn" class="form-control" placeholder="Codigo del ISBN"  >
+                  
+                  </div>
+                     <div class="form-group">
+                    <input width="70%" type="date" id="c_li_FechaPrestamo" class="form-control" placeholder="dd/mm/aaaa"  >
+                  
+                  </div>
+                     <div class="form-group">
+                    <input type="date" id="c_li_FechaDevol" class="form-control" placeholder="dd/mm/aaaa "  >
+                  
+                  </div>
+                  <div class="form-group">
+                    <div class="btn btn-danger" onclick="$.libro.LibroCreateREST()">Enviar!</div>
+                  </div>
+                </form>
+                </div>
+            </div>
+            <div class="panel" id="r_libro" data-title="Read Libro">
+                <h1>Leer Libros</h1>
+            </div>
+            <div class="panel" id="u_libro" data-title="Update Libro">
+                <h1>Modificar Libros</h1>
+            </div>
+            <div class="panel" id="uf_libro" data-title="Update Libro">
+                <h1>Crear Libros</h1>
+                <div class="container">
+                 <form>
+                  <div class="form-group">
+                    <input type="hidden" id="u_li_id" class="form-control" placeholder="ID del Libro" >
+                  </div>   
+                  <div class="form-group">
+                    <input type="text" id="u_li_nombre" class="form-control" placeholder="Nombre del Libro" >
+                  </div>
+                  <div class="form-group">
+                    <input type="text" id="u_li_autor" class="form-control" placeholder="Autor del Libro"  >
+                  </div>
+                      <div class="form-group">
+                    <input type="text" id="u_li_codigoISBN" class="form-control" placeholder="Codigo del ISBN"  >
+                  </div>
+                       <div class="form-group">
+                    <input type="date" id="u_li_fechaPrestamo" class="form-control" placeholder="fecha Prestamo">
+                  </div>
+                       <div class="form-group">
+                    <input type="date" id="u_li_fechaDevolucion" class="form-control" placeholder="fecha Devolucion" >
+                  </div>
+                 
+                  <div class="form-group">
+                    <div class="btn btn-danger" onclick="$.libro.LibroUpdateREST(1,1)">Enviar!</div>
+                  </div>
+                </form>
+                </div>
+            </div>
+            <div class="panel" id="d_libro" data-title="Delete Libro">
+                <h1>Delete Libro</h1>
+            </div>
+            <div class="panel" id="err_libro" data-title="ERROR">
+                <h1>Panel para la gestión de errores</h1>
+            </div>
+        </div>
+
+      
+        <nav id="left">
+            <div class="view active">
+                <header>
+                    <h1>MENU</h1>
+                </header>
+                <div class="pages">
+                    <div class="panel active" id="navPage1" data-title="Foobar">
+                        <ul class="list">
+                            <li><a href="#main" onclick="$.afui.clearHistory()">Inicio</a></li>
+                            <li><a href="#c_cliente" onclick="$.afui.clearHistory();$.cliente.ClienteCreateREST();">Crear Cliente</a></li>
+                            <li><a href="#r_cliente" onclick="$.afui.clearHistory();$.cliente.ClienteReadREST();">Leer Cliente</a></li>
+                            <li><a href="#u_cliente" onclick="$.afui.clearHistory();$.cliente.ClienteUpdateREST();">Actualizar Cliente</a></li>
+                            <li><a href="#d_cliente" onclick="$.afui.clearHistory();$.cliente.ClienteDeleteREST();">Borrar Cliente</a></li>
+                            
+                            <li><a href="#c_libro" onclick="$.afui.clearHistory();$.libro.LibroCreateREST();">Crear Libro</a></li>
+                            <li><a href="#r_libro" onclick="$.afui.clearHistory();$.libro.LibroReadREST();">Leer Libro</a></li>
+                            <li><a href="#u_libro" onclick="$.afui.clearHistory();$.libro.LibroUpdateREST();">Actualizar Libro</a></li>
+                            <li><a href="#d_libro" onclick="$.afui.clearHistory();$.libro.LibroDeleteREST();">Borrar Libro</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </nav>
+</div>
+</body>
+
+</html>
