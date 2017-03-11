@@ -9,5 +9,6 @@ DIAGRAMA DE CLASES
 ![](diagrama_clases.png)
 
 DIAGRAMA SQL
+
 ![](diagrama_sql.png)
 
