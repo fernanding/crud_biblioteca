@@ -6,8 +6,8 @@ DIAGRAMA DE CASOS DE USO
 
 DIAGRAMA DE CLASES
 
-![](diagrama_sql.png)
+![](diagrama_clases.png)
 
 DIAGRAMA SQL
+![](diagrama_sql.png)
 
-![](diagrama_clases.png)
